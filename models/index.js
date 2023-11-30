@@ -15,4 +15,4 @@ Recipe.belongsTo(Dish, {
   foreignKey: 'user_id'
 })
 
-module.exports = { User, Dish, Recipe };
+module.exports = { User, Dish };

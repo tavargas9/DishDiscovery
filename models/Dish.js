@@ -26,14 +26,16 @@ Dish.init(
     recipe_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: 'recipe',
+      references: {
+      model: 'recipe',
       key: 'id'
+      }
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'id',
+        key: 'id'
       },
     },
   },

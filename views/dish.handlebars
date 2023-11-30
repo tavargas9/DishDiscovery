@@ -1,0 +1,17 @@
+<div class="text-center">
+  <h2>{{dish_title}}</h2>
+  <p>{{description}}</p>
+  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <p class="d-flex p-2 flex-row justify-content-center">
+    <img class="w-50" src="{{img_url}}"/>
+  </p>
+  <h3>Recipe</h1>
+  <div>
+    <p><b>Prep time:</b> {{recipe.prep_time}} <b>Servings:</b> {{recipe.servings}}</p>
+    <p><b>Ingredients:</b> {{recipe.ingredients}}</p>
+    <p><b>Directions:</b> {{recipe.directions}}</p>
+  </div>
+  <p>
+    <button class="btn btn-primary mt-2">Save this recipe!</button>
+  </p>
+</div>

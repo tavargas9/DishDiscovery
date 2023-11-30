@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Dish, User } = require('../models');
+const { Dish, User, Recipe } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -34,6 +34,15 @@ router.get('/dish/:id', async (req, res) => {
         {
           model: User,
           attributes: ['name'],
+        },
+        {
+          model: Recipe,
+          attributes: [
+            'prep_time',
+            'servings', 
+            'ingredients',
+            'directions'
+          ],
         },
       ],
     });

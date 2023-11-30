@@ -14,7 +14,7 @@ Recipe.init(
             autoIncrement: true,
           },
           prep_time: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false
           },
           servings: {

@@ -23,13 +23,16 @@ Dish.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    img_url: {
+      type: DataTypes.STRING
+    },
     recipe_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-      model: 'recipe',
-      key: 'id'
-      }
+        model: 'recipe',
+        key: 'id'
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,

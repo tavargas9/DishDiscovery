@@ -15,4 +15,10 @@ Recipe.belongsTo(Dish, {
   foreignKey: 'user_id'
 })
 
-module.exports = { User, Dish };
+Dish.belongsTo(Recipe, {
+  foreignKey: 'recipe_id',
+  onDelete: 'CASCADE', 
+});
+
+
+module.exports = { User, Dish, Recipe };

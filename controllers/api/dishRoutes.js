@@ -3,7 +3,7 @@ const router = express.Router();
 const { getRecipes } = require('./tastyApi');
 
 // GET route to retrieve recipes
-router.get('/dishes', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const query = req.query.q || 'pasta'; // Default to 'pasta' if no query is provided
     const recipes = await getRecipes(query);
@@ -14,7 +14,7 @@ router.get('/dishes', async (req, res) => {
 });
 
 // POST route to add a new recipe
-router.post('/dishes', (req, res) => {
+router.post('/', (req, res) => {
   // Implement code to add a new recipe to the database
 });
 

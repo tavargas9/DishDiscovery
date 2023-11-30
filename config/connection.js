@@ -14,7 +14,7 @@ if (process.env.JAWSDB_URL) {
     process.env.DB_PASSWORD,
     {
       ///Host might need to change depending on who pushed to git hib!///////
-      host: 'localhost',
+      host: '127.0.0.1',
       dialect: 'mysql',
       port: 3306
     }

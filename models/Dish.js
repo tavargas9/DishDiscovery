@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Dish extends Model {}
 
 Project.init(
   {
@@ -11,7 +11,7 @@ Project.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    dish_title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -40,8 +40,8 @@ Project.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'dish',
   }
 );
 
-module.exports = Project;
+module.exports = Dish;

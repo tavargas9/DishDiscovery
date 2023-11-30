@@ -1,3 +1,5 @@
+
+
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
@@ -11,7 +13,8 @@ if (process.env.JAWSDB_URL) {
     process.env.DB_USER,
     process.env.DB_PASSWORD,
     {
-      host: '127.0.0.1', 
+      ///Host might need to change depending on who pushed to git hib!///////
+      host: 'localhost',
       dialect: 'mysql',
       port: 3306
     }

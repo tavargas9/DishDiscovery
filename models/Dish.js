@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class Dish extends Model {}
 
-Project.init(
+Dish.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -23,9 +23,11 @@ Project.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    needed_funding: {
-      type: DataTypes.FLOAT,
+    recipe_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: 'recipe',
+      key: 'id'
     },
     user_id: {
       type: DataTypes.INTEGER,

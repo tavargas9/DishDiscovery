@@ -1,6 +1,7 @@
-// utils/tastyApi.js
 const axios = require('axios');
 
+//Add the Tasty API key to your .env file under TASTY_API_KEY
+//Example: TASTY_API_KEY='ExampleAPIKey123'
 const TASTY_API_KEY = process.env.TASTY_API_KEY;
 const TASTY_API_BASE_URL = 'https://tasty.p.rapidapi.com';
 

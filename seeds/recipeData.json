@@ -1,0 +1,21 @@
+[
+    {
+      "prep_time": "5 minutes",
+      "servings": 1,
+      "ingredients": "Peanut butter, Jelly, Bread",
+      "directions": "Spread the peanut butter and jelly on toasted bread. Enjoy:)"
+    },
+    {
+        "prep_time": "20 minutes",
+        "servings": 5,
+        "ingredients": "Chuck roast, salt",
+        "directions": "Throw the damn beef in the oven at 400F. Wait 20 minutes. Enjoy:)"
+    },
+    {
+        "prep_time": "25 minutes",
+        "servings": 4,
+        "ingredients": "1lb ground beef, brioche buns, cheese, salt, pepper, ketchup",
+        "directions": "Form ground beef into 1/4lb balls. Shape into patties and cook on grill. Toast buns."
+    }
+  ]
+  

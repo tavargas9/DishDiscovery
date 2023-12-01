@@ -4,27 +4,39 @@ const Recipe = require('./Recipe');
 const Comment = require('./Comment');
 const Favorite = require('./Favorite');
 
+Dish.belongsTo(User, {
+  foreignKey: 'user_id'
+});
 
 User.hasMany(Dish, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
-
-Dish.hasMany(Comment, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
-})
-
+/////////////
+/////Comment may possible belong to many, Dish and User, will look into that more.
 Comment.belongsTo(Dish, {
-  
-})
-
-Dish.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'dish_id',
 });
 
+Dish.hasMany(Comment, {
+  foreignKey: 'dish_id',
+  onDelete: 'CASCADE'
+});
+
+//////////////
+
 Recipe.belongsTo(Dish, {
-  foreignKey: 'user_id'
+  foreignKey: 'dish_id'
+});
+
+Dish.hasOne(Recipe, {
+  foreignKey: 'dish_id',
+  onDelete: 'CASCADE'
+});
+
+//////////////
+Favorite.belongsTo(User, {
+  foreignKey: 'user_id',
 });
 
 User.hasMany(Favorite, {
@@ -34,4 +46,6 @@ User.hasMany(Favorite, {
 
 
 
-module.exports = { User, Dish, Recipe, Comment };
+
+
+module.exports = { User, Dish, Recipe, Comment, Favorite };

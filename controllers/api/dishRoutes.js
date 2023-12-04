@@ -5,7 +5,7 @@ const { Dish } = require('../../models');
 // GET route to retrieve recipes
 router.get('/', async (req, res) => {
   try {
-    const query = req.query.q || 'pasta'; // Default to 'pasta' if no query is provided
+    const query = req.body.q || 'pasta'; // Default to 'pasta' if no query is provided
     const recipes = await getRecipes(query);
     res.json(recipes);
   } catch (error) {

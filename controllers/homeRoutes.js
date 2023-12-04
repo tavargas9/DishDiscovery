@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const { Dish, User, Recipe } = require('../models');
 const withAuth = require('../utils/auth');
+const { getRecipes } = require('./api/tastyApi')
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // Get all dishes and JOIN with user data
     const dishData = await Dish.findAll({
       include: [
         {
@@ -14,12 +15,14 @@ router.get('/', async (req, res) => {
       ],
     });
 
+    const apiData = await getRecipes('pasta');
+    const recipes = apiData.results;
     // Serialize data so the template can read it
     const dishes = dishData.map((dish) => dish.get({ plain: true }));
-
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      dishes, 
+      dishes,
+      recipes, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {

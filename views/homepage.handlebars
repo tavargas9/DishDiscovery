@@ -1,5 +1,5 @@
 <!-- Loop over each object in the projects array -->
-<div class="container d-flex justify-content-evenly">
+<div class="container d-flex flex-wrap justify-content-evenly">
 {{#each dishes as |dish| }}
 <div class="card" style="width: 18rem;">
   <img src="{{dish.img_url}}" class="card-img-top" alt="picture of {{dish.dish_title}}">
@@ -10,4 +10,15 @@
   </div>
 </div>
 {{/each}}
+{{#each recipes as |recipe| }}
+<div class="card" style="width: 18rem;">
+  <img src="{{recipe.thumbnail_url}}" class="card-img-top" alt="picture of {{recipe.name}}">
+  <div class="card-body">
+    <h5 class="card-title">{{recipe.name}}</h5>
+    <p class="card-text">{{recipe.description}}</p>
+    <a href="/dish/{{recipe.id}}" class="btn btn-primary">See recipe</a>
+  </div>
+</div>
+{{/each}}
+
 </div>

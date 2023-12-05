@@ -22,4 +22,21 @@ const getRecipes = async (query) => {
   }
 };
 
-module.exports = { getRecipes };
+const getMoreInfo = async (query) => {
+  try {
+    const response = await axios.get(`${TASTY_API_BASE_URL}/recipes/get-more-info`, {
+      params: { id: query },
+      headers: {
+        'X-RapidAPI-Host': 'tasty.p.rapidapi.com',
+        'X-RapidAPI-Key': TASTY_API_KEY,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching recipes from Tasty API:', error.response ? error.response.data : error.message);
+    throw error;
+  }
+};
+
+module.exports = { getRecipes, getMoreInfo };

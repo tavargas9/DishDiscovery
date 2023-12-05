@@ -1,0 +1,42 @@
+<div class="text-center">
+    <h2>{{name}}</h2>
+    <p>{{description}}</p>
+    <p class="d-flex p-2 flex-row justify-content-center">
+      <img class="w-50" src="{{thumbnail_url}}"/>
+    </p>
+    <h3>Recipe</h3>
+    <div>
+      <p><b>Servings:</b> {{num_servings}}</p>
+      <p><b>Ingredients:</b></p>
+      <ol>
+        {{#each ingredients}}
+          <li>{{this.ingredient.raw_text}}</li>
+        {{/each}}
+      </ol>
+      <p><b>Directions:</b></p>
+      <ol>
+        {{#each instructions}}
+          <li>{{this.display_text}}</li>
+        {{/each}}
+      </ol>
+    </div>
+    <!-- Favorite Button -->
+  <p>
+    <button onclick="toggleFavorite()" class="btn btn-primary mt-2" id="favorite-button">
+      {{#if isFavorite}}Remove from Favorites{{else}}Save this recipe!{{/if}}
+    </button>
+  </p>
+  <!-- Comment Section -->
+  <div class="comments-section mt-4">
+    <h3>Comments</h3>
+    <ul id="comment-list">
+      {{#each comments}}
+      <li>{{this}}</li>
+      {{/each}}
+    </ul>
+    <div>
+      <textarea id="comment-input" class="form-control" placeholder="Add a comment"></textarea>
+      <button onclick="addComment()" class="btn btn-primary mt-2">Add Comment</button>
+    </div>
+  </div>
+</div>

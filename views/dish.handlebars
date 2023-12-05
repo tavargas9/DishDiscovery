@@ -3,20 +3,23 @@
   <p>{{description}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
   <p class="d-flex p-2 flex-row justify-content-center">
-    <img class="w-50" src="{{img_url}}"/>
+    <img class="w-50" src="{{img_url}}" alt="{{dish_title}}"/>
   </p>
-  <h3>Recipe</h1>
+  <h3>Recipe</h3>
+
   <div>
     <p><b>Prep time:</b> {{recipe.prep_time}} <b>Servings:</b> {{recipe.servings}}</p>
     <p><b>Ingredients:</b> {{recipe.ingredients}}</p>
     <p><b>Directions:</b> {{recipe.directions}}</p>
   </div>
-    <!-- Favorite Button -->
+
+  <!-- Favorite Button -->
   <p>
     <button onclick="toggleFavorite()" class="btn btn-primary mt-2" id="favorite-button">
       {{#if isFavorite}}Remove from Favorites{{else}}Save this recipe!{{/if}}
     </button>
   </p>
+
   <!-- Comment Section -->
   <div class="comments-section mt-4">
     <h3>Comments</h3>

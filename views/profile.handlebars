@@ -18,41 +18,46 @@
   </div>
 
   <div class="col-md-6">
-    <h3>Your Projects:</h3>
+    <h3>Your Recipes:</h3>
 
-    <!-- Create a New Project Form -->
-    <form class="form new-project-form">
+    <!-- Create a New Recipe Form -->
+    <form class="form new-recipe-form">
       <div class="form-group">
-        <label for="project-name">dish Name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
+        <label for="recipe-name">Recipe Name:</label>
+        <input class="form-input" type="text" id="recipe-name" name="recipe-name" />
       </div>
       <div class="form-group">
-        <label for="project-desc">Description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+        <label for="recipe-desc">Description:</label>
+        <textarea class="form-input" id="recipe-desc" name="recipe-desc"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create recipe</button>
+        <button type="submit" class="btn btn-primary">Create Recipe</button>
       </div>
     </form>
 
-    <!-- Display Current Projects -->
-    {{#if projects.length}}
-      <div class="project-list mt-4">
-        <h4>Your Current Projects:</h4>
+    <!-- Display Current Recipes -->
+    {{#if recipes.length}}
+      <div class="recipe-list mt-4">
+        <h4>Your Current Recipes:</h4>
 
-        {{#each projects as |project|}}
+        {{#each recipes as |recipe|}}
           <div class="row mb-2">
-            <div class="col-md-8">
-              <h5><a href="/project/{{project.id}}">{{project.name}}</a></h5>
-            </div>
             <div class="col-md-4">
-              <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+              <img src="{{recipe.img_url}}" alt="{{recipe.dish_title}}" class="img-fluid">
+            </div>
+            <div class="col-md-8">
+              <h5>{{recipe.dish_title}}</h5>
+              <p>{{recipe.description}}</p>
+              <p>Date Created: {{recipe.date_created}}</p>
+              <!-- Add more details as needed -->
+
+              <button class="btn btn-sm btn-danger delete-recipe" data-id="{{recipe.recipe_id}}">DELETE</button>
             </div>
           </div>
         {{/each}}
       </div>
     {{else}}
-      <p>No projects found. Create a new project to get started!</p>
+      <p>No recipes found. Create a new recipe to get started!</p>
     {{/if}}
   </div>
 </div>

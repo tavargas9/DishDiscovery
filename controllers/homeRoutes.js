@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Dish, User, Recipe } = require('../models');
 const withAuth = require('../utils/auth');
-const { getRecipes } = require('./api/tastyApi')
+const { getRecipes, getMoreInfo } = require('./api/tastyApi')
 
 router.get('/', async (req, res) => {
   try {
@@ -60,6 +60,28 @@ router.get('/dish/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/dish/tasty/:id', async (req, res) => {
+  try {
+    const dishData = await getMoreInfo(req.params.id);
+
+    const dish = {
+      name: dishData.name,
+      description: dishData.description,
+      thumbnail_url: dishData.thumbnail_url,
+      num_servings: dishData.num_servings,
+      ingredients: dishData.sections[0].components,
+      instructions: dishData.instructions
+    };
+    console.log(dishData.);
+    res.render('dishTasty', {
+      ...dish,
+      logged_in: req.session.logged_in
+    })
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {

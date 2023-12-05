@@ -10,17 +10,24 @@ Comment.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-          },
-          user_id: {
+        },
+        user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id'
-              },
-          },
-          comment: {
+            },
+        },
+        comment: {
             type: DataTypes.STRING,
-          }
+        },
+        dish_id : {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'dish',
+                key: 'id'
+            },
+        }
     },
     {
         sequelize,

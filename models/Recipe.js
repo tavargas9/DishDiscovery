@@ -29,13 +29,6 @@ Recipe.init(
             type: DataTypes.STRING,
             allowNull: false,
           },
-          dish_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'dish',
-                key: 'id'
-          },
-          },
         },
         {
         sequelize,

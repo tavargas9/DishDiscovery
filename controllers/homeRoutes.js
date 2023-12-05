@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     const dishData = await Dish.findAll({
       include: [
         {
-          model: User,
+          model: Recipe,
           attributes: ['name'],
         },
       ],

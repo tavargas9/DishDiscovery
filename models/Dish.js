@@ -40,6 +40,13 @@ Dish.init(
         key: 'id'
       },
     },
+    recipe_id: {
+      type: DataTypes.INTEGER,
+      reference: {
+        model: 'recipe',
+        key: 'id'
+      },
+    },
   },
   {
     sequelize,

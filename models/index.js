@@ -26,11 +26,11 @@ Dish.hasMany(Comment, {
 //////////////
 
 Recipe.belongsTo(Dish, {
-  foreignKey: 'dish_id'
+  foreignKey: 'recipe_id'
 });
 
 Dish.hasOne(Recipe, {
-  foreignKey: 'dish_id',
+  foreignKey: 'recipe_id',
   onDelete: 'CASCADE'
 });
 

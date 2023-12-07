@@ -12,8 +12,7 @@
     <p><b>Ingredients:</b> {{recipe.ingredients}}</p>
     <p><b>Directions:</b> {{recipe.directions}}</p>
   </div>
-
-  <!-- Favorite Button -->
+   <!-- Favorite Button -->
   <p>
     <button onclick="toggleFavorite()" class="btn btn-primary mt-2" id="favorite-button">
       {{#if isFavorite}}Remove from Favorites{{else}}Save this recipe!{{/if}}
@@ -34,3 +33,40 @@
     </div>
   </div>
 </div>
+
+<script>
+  // JavaScript functions for favorite button and comments
+  function toggleFavorite() {
+    // Update the isFavorite variable accordingly
+    const isFavorite = !{{isFavorite}}; // Invert the current state
+    updateFavoriteButton(isFavorite);
+
+    // You should also send a request to your server to update the favorite status
+    // Example: sendFavoriteStatusToServer(isFavorite);
+  }
+
+  function updateFavoriteButton(isFavorite) {
+    const favoriteButton = document.getElementById('favorite-button');
+    favoriteButton.textContent = isFavorite ? 'Remove from Favorites' : 'Save this recipe!';
+  }
+
+  function addComment() {
+    const commentInput = document.getElementById('comment-input');
+    const commentText = commentInput.value.trim();
+
+    if (commentText !== '') {
+      // Update the comments list accordingly
+      updateCommentsList(commentText);
+      // Clear the comment input
+      commentInput.value = '';
+    }
+  }
+  function updateCommentsList(comment) {
+    const commentList = document.getElementById('comment-list');
+    const listItem = document.createElement('li');
+    listItem.textContent = comment;
+    commentList.appendChild(listItem);
+  }
+</script>
+
+

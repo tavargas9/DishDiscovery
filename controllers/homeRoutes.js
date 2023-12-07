@@ -73,7 +73,7 @@ router.get('/dish/tasty/:id', async (req, res) => {
       ingredients: dishData.sections[0].components,
       instructions: dishData.instructions
     };
-    console.log(dishData.);
+    
     res.render('dishTasty', {
       ...dish,
       logged_in: req.session.logged_in

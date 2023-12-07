@@ -30,10 +30,15 @@ router.post('/', (req, res) => {
 
 router.post('/favorite', async (req, res) => {
   // return res.json("hello")
+  console.log("-------------")
   console.log(req.body)
+  console.log("-------------")
+  console.log("-------------")
+  console.log(req.body.recipe_id)
+  console.log("-------------")
   try {
     const newFavorite = await Favorite.create({
-      ...req.body,
+      recipe_id: req.body.recipe_id,
       user_id: req.session.user_id,
     });
 console.log(newFavorite)

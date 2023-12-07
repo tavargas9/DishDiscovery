@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Op } = require('sequelize');
-const { Dish, User, Recipe } = require('../models');
+const { Dish, User, Recipe, Favorite } = require('../models');
 const withAuth = require('../utils/auth');
 const { getRecipes, getMoreInfo } = require('./api/tastyApi')
 
@@ -128,8 +128,18 @@ router.get('/profile', withAuth, async (req, res) => {
       //
       //
     });
+    
+    const favoritesData = await Favorite.findAll(
+      {where: {
+        user_id: req.session.user_id,
+      },
+    })
 
     const user = userData.get({ plain: true });
+
+    const favoritesArray = await favoritesData.map(key => getMoreInfo(favoritesData[key].dataValues.recipe_id));
+
+    console.log(favoritesArray);
 
     res.render('profile', {
       ...user,

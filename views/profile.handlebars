@@ -35,24 +35,21 @@
       </div>
     </form>
 
-    <!-- Display Current Projects -->
-    {{#if projects.length}}
+    <!-- Display Favorites -->
+    {{#if names.length}}
       <div class="project-list mt-4">
-        <h4>Your Current Projects:</h4>
+        <h4>Your Favorites:</h4>
 
-        {{#each projects as |project|}}
+        {{#each names as |name|}}
           <div class="row mb-2">
             <div class="col-md-8">
-              <h5><a href="/project/{{project.id}}">{{project.name}}</a></h5>
-            </div>
-            <div class="col-md-4">
-              <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+              <h5><a href="/dish/tasty/{{name.id}}">{{name.name}}</a></h5>
             </div>
           </div>
         {{/each}}
       </div>
     {{else}}
-      <p>No projects found. Create a new project to get started!</p>
+      <p>No favorites found. Save a recipe to get started!</p>
     {{/if}}
   </div>
 </div>

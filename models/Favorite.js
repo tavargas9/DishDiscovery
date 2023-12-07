@@ -18,6 +18,9 @@ Favorite.init (
                 key: 'id'
             },
         },
+        recipe_id: {
+            type: DataTypes.INTEGER
+        }
     },
     {
         sequelize,

@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const { getRecipes, getMoreInfo } = require('./tastyApi');
 const { Dish } = require('../../models');
+const { Favorite } = require('../../models');
 
 // GET route to retrieve recipes
 router.get('/', async (req, res) => {
@@ -27,4 +28,18 @@ router.post('/', (req, res) => {
   // Implement code to add a new recipe to the database
 });
 
+router.post('/favorite', async (req, res) => {
+  // return res.json("hello")
+  console.log(req.body)
+  try {
+    const newFavorite = await Favorite.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+console.log(newFavorite)
+    res.status(200).json(newFavorite);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 module.exports = router;

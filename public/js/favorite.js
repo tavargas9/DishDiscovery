@@ -13,17 +13,17 @@ function toggleFavorite() {
   isFavorite = !isFavorite;
 
   updateFavoriteButton(isFavorite);
-let recipeId= document.location.pathname.split("/")[3]
-  sendFavoriteStatusToServer(recipeId);
+let recipe_id= document.location.pathname.split("/")[3]
+  sendFavoriteStatusToServer(recipe_id);
 }
 
-function sendFavoriteStatusToServer(recipeId) {
+function sendFavoriteStatusToServer(recipe_id) {
   fetch('/api/dishes/favorite', {
    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({recipeId}),
+    body: JSON.stringify({recipe_id}),
   })
     .then(response => response.json())
     .then(data => {

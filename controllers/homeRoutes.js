@@ -137,9 +137,8 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    const favoritesArray = await favoritesData.map(key => getMoreInfo(favoritesData[key].dataValues.recipe_id));
 
-    console.log(favoritesArray);
+    console.log(favoritesData);
 
     res.render('profile', {
       ...user,

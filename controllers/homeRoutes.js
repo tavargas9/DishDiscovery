@@ -2,7 +2,8 @@ const router = require('express').Router();
 const { Op } = require('sequelize');
 const { Dish, User, Recipe, Favorite } = require('../models');
 const withAuth = require('../utils/auth');
-const { getRecipes, getMoreInfo } = require('./api/tastyApi')
+const { getRecipes, getMoreInfo } = require('./api/tastyApi');
+const isFavoriteDish = require('../utils/isFavoriteDish');
 
 router.get('/', async (req, res) => {
   try {
@@ -106,9 +107,12 @@ router.get('/dish/tasty/:id', async (req, res) => {
       ingredients: dishData.sections[0].components,
       instructions: dishData.instructions
     };
+
+    const isFavorite = req.session.logged_in ? await isFavoriteDish(req.session.user_id, req.params.id) : false;
     
     res.render('dishTasty', {
       ...dish,
+      isFavorite,
       logged_in: req.session.logged_in
     })
   } catch (err) {

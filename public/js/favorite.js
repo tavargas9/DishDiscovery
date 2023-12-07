@@ -4,16 +4,16 @@ let isFavorite = false;
 
 function updateFavoriteButton(isFavorite) {
   const favoriteButton = document.getElementById('favorite-button');
-  favoriteButton.textContent = isFavorite ? 'Remove from Favorites' : 'Save this recipe!';
-
-}
+  favoriteButton.disabled = true;
+  favoriteButton.textContent = isFavorite ? 'Added to favorites' : 'Save this recipe!';
+};
 
 function toggleFavorite() {
-    console.log("test")
+  console.log("test")
   isFavorite = !isFavorite;
 
   updateFavoriteButton(isFavorite);
-let recipe_id= document.location.pathname.split("/")[3]
+  let recipe_id= document.location.pathname.split("/")[3]
   sendFavoriteStatusToServer(recipe_id);
 }
 

@@ -2,20 +2,20 @@
 <div class="container d-flex flex-wrap justify-content-evenly">
 {{#each dishes as |dish| }}
 <div class="card" style="width: 18rem;">
-  <img src="{{dish.img_url}}" class="card-img-top" alt="picture of {{dish.dish_title}}">
-  <div class="card-body">
+  <img src="{{dish.img_url}}" class="card-img-top h-25 img-fluid object-fit-cover" alt="picture of {{dish.dish_title}}">
+  <div class="card-body d-flex flex-column justify-content-between my-4">
     <h5 class="card-title">{{dish.dish_title}}</h5>
-    <p class="card-text">{{dish.description}}</p>
+    <p class="card-text text-center">{{dish.description}}</p>
     <a href="/dish/{{dish.id}}" class="btn btn-primary">See recipe</a>
   </div>
 </div>
 {{/each}}
 {{#each recipes as |recipe| }}
 <div class="card" style="width: 18rem;">
-  <img src="{{recipe.thumbnail_url}}" class="card-img-top" alt="picture of {{recipe.name}}">
-  <div class="card-body">
+  <img src="{{recipe.thumbnail_url}}" class="card-img-top h-25 img-fluid object-fit-cover" alt="picture of {{recipe.name}}">
+  <div class="card-body d-flex flex-column justify-content-between my-4">
     <h5 class="card-title">{{recipe.name}}</h5>
-    <p class="card-text">{{recipe.description}}</p>
+    <p class="card-text text-center">{{recipe.description}}</p>
     <a href="/dish/tasty/{{recipe.id}}" class="btn btn-primary">See recipe</a>
   </div>
 </div>

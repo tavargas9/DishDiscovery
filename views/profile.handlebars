@@ -18,23 +18,6 @@
   </div>
 
   <div class="col-md-6">
-    <h3>Your Projects:</h3>
-
-    <!-- Create a New Project Form -->
-    <form class="form new-project-form">
-      <div class="form-group">
-        <label for="project-name">dish Name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
-      </div>
-      <div class="form-group">
-        <label for="project-desc">Description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create recipe</button>
-      </div>
-    </form>
-
     <!-- Display Favorites -->
     {{#if names.length}}
       <div class="project-list mt-4">
@@ -43,7 +26,7 @@
         {{#each names as |name|}}
           <div class="row mb-2">
             <div class="col-md-8">
-              <h5><a href="/dish/tasty/{{name.id}}">{{name.name}}</a></h5>
+              <h5><a href="/dish/tasty/{{name.id}}" class="btn btn-primary">{{name.name}}</a></h5>
             </div>
           </div>
         {{/each}}

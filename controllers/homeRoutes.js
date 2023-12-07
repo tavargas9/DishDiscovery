@@ -134,14 +134,21 @@ router.get('/profile', withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     })
-
+    const recipeIds = favoritesData.map((favorite) => favorite.dataValues.recipe_id);
+    const recipeDataArray = [];
+    for (const recipeId of recipeIds) {
+      const data = await getMoreInfo(recipeId);
+      recipeDataArray.push(data);
+    }
+    const names = recipeDataArray.map(({ id, name }) => ({ id, name }));
+    console.log(names);
     const user = userData.get({ plain: true });
-
 
     console.log(favoritesData);
 
     res.render('profile', {
       ...user,
+      names,
       logged_in: true
     });
   } catch (err) {

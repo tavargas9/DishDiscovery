@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { Op } = require('sequelize');
 const { Dish, User, Recipe } = require('../models');
 const withAuth = require('../utils/auth');
 const { getRecipes, getMoreInfo } = require('./api/tastyApi')
@@ -16,6 +17,38 @@ router.get('/', async (req, res) => {
     });
 
     const apiData = await getRecipes('pasta');
+    const recipes = apiData.results;
+    // Serialize data so the template can read it
+    const dishes = dishData.map((dish) => dish.get({ plain: true }));
+    // Pass serialized data and session flag into template
+    res.render('homepage', { 
+      dishes,
+      recipes, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/search/:query', async (req, res) => {
+  try {
+   // Get all dishes and JOIN with user data
+    const dishData = await Dish.findAll({
+      where: {
+        dish_title: {
+          [Op.like]: `%${req.params.query}%`, // Case-insensitive search
+        },
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const apiData = await getRecipes(req.params.query);
     const recipes = apiData.results;
     // Serialize data so the template can read it
     const dishes = dishData.map((dish) => dish.get({ plain: true }));

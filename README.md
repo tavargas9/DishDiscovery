@@ -52,7 +52,7 @@ Follow these steps to get a copy of the project up and running on your local mac
     npm start
     ```
 
-5. Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to embark on your culinary adventure.
+5. Open your browser and navigate to [http://localhost:3001](http://localhost:3001) to embark on your culinary adventure.
 
 ## Usage
 
@@ -102,5 +102,17 @@ Our vision for DishDiscovery is to create the ultimate recipe-sharing platform, 
 - [Bootstrap](https://getbootstrap.com/) - The open-source CSS framework used for styling.
 - [Handlebars](https://handlebarsjs.com/) - The templating engine for dynamic content rendering.
 - [Tasty API](https://tasty.co/) - The API providing a variety of recipes for our platform.
+
+## Deployable Link
+
+https://secure-hollows-55574-70e0c84bc001.herokuapp.com/
+
+## Credits
+
+Collin Pulsipher
+Tony Vargas
+Mark Curtiss
+Dillen Grant
+Jake Marsee
 
 Unleash your culinary creativity at DishDiscovery, the ultimate hub for recipes, inspiration, and community. Explore a diverse array of dishes, share your favorites, and connect with fellow food enthusiasts. Join challenges, curate personal collections, and turn every meal into a masterpiece. Your culinary adventure starts here. 🍽️

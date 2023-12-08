@@ -20,6 +20,7 @@ Favorite.init (
         },
         recipe_id: {
             type: DataTypes.INTEGER
+            
         }
     },
     {

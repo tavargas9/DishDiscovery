@@ -66,9 +66,10 @@ Follow these steps to get a copy of the project up and running on your local mac
 
 Video:
 
-
+https://youtu.be/J0C1Z7ZSpeA
 
 Images:
+<img width="1440" alt="Screenshot 2023-12-07 at 6 28 07 PM" src="https://github.com/tavargas9/DishDiscovery/assets/142133969/d1f1fd2d-e8c1-404d-9cf1-6b30b4314222">
 
 
 # Roadmap
